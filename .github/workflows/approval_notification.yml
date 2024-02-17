@@ -1,0 +1,17 @@
+name: PR Approved
+on:
+  pull_request_review:
+    types: [submitted]
+env:
+  SLACK_WEBHOOK_URL: 'https://hooks.slack.com/services/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'
+
+jobs:
+  build:
+    if: github.event.review.state == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - name: slack - GitHub Actions Slack integration
+        uses: act10ns/slack@v1.5.0
+        with:
+          status: ${{ job.status }}
+          message: 'PR "${{ github.event.pull_request.title }}" has been approved'
