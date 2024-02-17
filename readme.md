@@ -150,6 +150,12 @@ To get the ID of the app, navigate to Apps > Your custom apps. Find your app and
 
 This requires the app being installed on the relevant environment. Back in the Your custom apps page, if the app has a check mark next to the name, this means it is installed. If not, hit the ellipsis and hit install.
 
+## Planetscale Free Tier - Keeping the database awake
+
+As part of this project, it felt like it would be a suitable idea to have a cron-job that can query the database every day to prevent it from going into sleep (part of Planetscale's free tier restrictions).
+
+If this project is hosted on Vercel, the `vercel.json` file configures your project to run `/api/wake-up-db` on a daily basis at 5:00 am UTC.
+
 ### Useful resources
 
 Updating field control (`changeFieldControl`):
